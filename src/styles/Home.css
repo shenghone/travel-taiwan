@@ -1,0 +1,16 @@
+.homeWrapper {
+  position: absolute;
+  width: 100vw;
+  display: grid;
+  align-items: center;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  background: #000;
+}
+
+.hehehe {
+  color: #fff;
+  position: absolute;
+  bottom: 5%;
+}

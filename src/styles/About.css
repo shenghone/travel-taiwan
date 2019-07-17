@@ -1,0 +1,148 @@
+.aboutOutterWrapper {
+  position: absolute;
+  width: 100vw;
+  height: 100%;
+  background: #000;
+  z-index: 5;
+  color: #fff;
+  grid-template-columns: 70vw 1fr;
+  grid-template-rows: 100%;
+  grid-template-areas: "content picture";
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.des {
+  display: grid;
+  height: 450px;
+  justify-self: center;
+  align-items: center;
+  position: absolute;
+  grid-area: content;
+  align-self: center;
+  z-index: 6;
+  width: calc(100% - 150px);
+  color: #fff;
+  overflow-y: scroll;
+  opacity: 0;
+}
+.des > p {
+  box-sizing: border-box;
+  text-align: justify;
+  font-size: 0.9rem;
+  line-height: 1.8rem;
+  padding: 1rem;
+}
+
+.des > p::first-letter {
+  font-size: 2rem;
+}
+
+.des li:hover {
+  opacity: 0.65;
+}
+
+.aboutContentWrapper {
+  display: grid;
+  position: relative;
+  grid-area: content;
+  background: #000;
+  height: 100vh;
+  align-items: end;
+  justify-content: center;
+  overflow-y: scroll;
+}
+
+.aboutPictureWrapper {
+  grid-area: picture;
+  position: relative;
+  height: 100vh;
+}
+
+.aboutInnerWrapper {
+  display: flex;
+  justify-content: center;
+  min-width: 400px;
+  overflow-y: scroll;
+}
+
+.aboutInnerWrapper h1 {
+  position: relative;
+  font-family: "Roboto";
+  font-size: 1rem;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  text-align: center;
+  transition: 1s;
+  margin: 1rem 0;
+}
+
+.aboutSpan {
+  position: absolute;
+  bottom: -2px;
+  height: 8%;
+  background: #83142c;
+  transition: 1s;
+}
+
+.aboutInnerWrapper h1:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.aboutPictureWrapper > img {
+  position: absolute;
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+  opacity: 0;
+}
+
+.aboutInnerWrapper > div {
+  bottom: 5%;
+  display: inline-block;
+  margin: 0 0.5rem;
+  opacity: 0;
+  animation: tabAnimation 5s forwards;
+}
+
+@keyframes tabAnimation {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.des a:hover {
+  opacity: 0.65;
+}
+
+.blk {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  background: #fff;
+}
+
+@media screen and (max-width: 960px) {
+  .aboutOutterWrapper {
+    grid-template-columns: 60vw 1fr;
+  }
+  .aboutInnerWrapper h1 {
+    font-size: 0.8rem;
+  }
+  .des {
+    width: calc(100% - 60px);
+    height: 450px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .aboutOutterWrapper {
+    grid-template-columns: 70vw 1fr;
+  }
+}

@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Satisfy&display=swap");
+
+.carouselWrapper {
+  position: absolute;
+  height: 400px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  z-index: 1;
+  animation: fadeIn 0.5s forwards;
+}
+
+.window {
+  position: relative;
+  display: flex;
+  align-items: center;
+  z-index: 11;
+}
+
+.dragger {
+  position: absolute;
+  height: 100vh;
+  opacity: 1;
+  z-index: 10;
+  cursor: grab;
+}
+
+.dragger:active {
+  cursor: grabbing;
+}
+
+.instruction {
+  position: absolute;
+  font-size: 4rem;
+  font-family: "Satisfy";
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #1fc8db;
+  height: 100%;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  letter-spacing: 0.8rem;
+  text-shadow: 1px 1px 1px rgba(256, 256, 256, 0.4);
+  background: #000;
+  opacity: 0;
+}
+.textBox > p {
+  font-size: 1.2rem;
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  .instruction {
+    font-size: 3rem;
+    letter-spacing: 0.6rem;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .instruction {
+    top: 3%;
+    font-size: 2.5rem;
+  }
+  .textBox > p {
+    font-size: 0.8rem;
+    letter-spacing: 0.4rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .textBox > p {
+    font-size: 0.8rem;
+    letter-spacing: 0.2rem;
+  }
+}

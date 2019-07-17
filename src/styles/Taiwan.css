@@ -1,0 +1,31 @@
+.taiwanMapWrapper {
+  display: flex;
+  flex-basis: 100vw;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+.mapWrapper {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.county {
+  stroke: #000;
+  stroke-width: 0.5;
+  transition: 1s;
+}
+
+.county:hover {
+  cursor: pointer;
+}
+
+.selected {
+  transform: translate(-5px, -5px);
+  z-index: 3;
+}

@@ -1,0 +1,68 @@
+.pictureWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  z-index: 11;
+  opacity: 0;
+}
+.pictureWrapper > img {
+  position: relative;
+  height: 90%;
+  cursor: zoom-in;
+  user-select: none;
+  margin: 0 0 10px 0;
+}
+
+.selector {
+  display: flex;
+  align-self: flex-end;
+  font-size: 10px;
+  position: absolute;
+  width: 100%;
+  color: #fff;
+}
+
+.imageIndex:hover {
+  cursor: pointer;
+  opacity: 0.65;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    letter-spacing: 0.1rem;
+  }
+}
+
+.placeName {
+  margin-top: 2rem;
+  height: 15px;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  color: #000;
+  background: #fff;
+  display: none;
+}
+
+.pictureWrapper > img:hover + .selector > p {
+  display: inline-block;
+  animation: fadeInText 1s forwards;
+}
+
+@media screen and (max-width: 1024px) {
+  .pictureWrapper > img {
+    height: 80%;
+    margin: 0 0 -10px 0;
+  }
+}
+@media screen and (max-width: 960px) {
+  .pictureWrapper > img {
+    height: 70%;
+    margin: 0 0 -40px 0;
+  }
+}

@@ -1,0 +1,4 @@
+export const SELECT_PICTURE = "SELECT_PICTURE";
+export const OFFSET_VALUE = "OFFSET_VALUE";
+export const SELECT_COUNTY = "SELECT_COUNTY";
+export const LOAD_IMAGE = "LOAD_IMAGE";

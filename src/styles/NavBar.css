@@ -1,0 +1,61 @@
+.navBarWrapper {
+  font-family: "DM Serif Display", serif;
+  position: fixed;
+  width: 90%;
+  height: 3rem;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 4%;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+  background: transparent;
+}
+
+.navBarWrapper > ul {
+  position: absolute;
+  list-style: none;
+  right: 0%;
+}
+
+.logo {
+  display: flex;
+}
+
+.logo:hover {
+  opacity: 0.65;
+  cursor: pointer;
+}
+
+.navBarWrapper > ul > li:hover {
+  cursor: pointer;
+  opacity: 0.65;
+}
+
+.taiwanWrapper {
+  width: 30px;
+  height: 30px;
+}
+
+.smallTaiwan {
+  transform-origin: top left;
+  transform: scale(0.026);
+  fill: #009975;
+  stroke: #000;
+}
+
+.smallTaiwan:hover {
+  opacity: 0.65;
+}
+
+@media screen and (max-width: 960px) {
+  .navBarWrapper > ul {
+    right: 5%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .navBarWrapper > ul {
+    right: 2%;
+  }
+}
