@@ -15,7 +15,7 @@ const Picture = React.memo(({ lastOne, ...props }) => {
     dispatch
   ]);
   const progress = useSelector(state => state.percentage);
-  console.log(Math.round(progress * 100));
+
   const getMargin = () => {
     const { inx } = props;
     if (inx === 1) {
@@ -33,6 +33,9 @@ const Picture = React.memo(({ lastOne, ...props }) => {
     if (Math.round(progress * 100) % 100 === 0) {
       const animate = () => {
         const et = new TimelineMax();
+        et.set(pictureWrapperRef.current.children, {
+          opacity: 1
+        });
         et.from(pictureWrapperRef.current, _.random(0.8, 1.6), {
           opacity: -2,
           y: _.random(-130, -160)

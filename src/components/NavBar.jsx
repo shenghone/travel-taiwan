@@ -14,7 +14,7 @@ const NavBar = React.memo(function({ location }) {
     setCounty(null);
   };
   const { pathname } = location;
-  console.log(pathname);
+
   return (
     <div className="navBarWrapper">
       <div className="logo" onClick={handleClick}>
