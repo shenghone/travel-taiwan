@@ -36,9 +36,9 @@ const Picture = React.memo(({ lastOne, ...props }) => {
         et.set(pictureWrapperRef.current.children, {
           opacity: 1
         });
-        et.from(pictureWrapperRef.current, _.random(0.8, 1.6), {
+        et.from(pictureWrapperRef.current, _.random(0.8, 1.2), {
           opacity: -2,
-          y: _.random(-130, -160)
+          y: _.random(-140, -165)
         }).to(pictureWrapperRef.current, 0.6, {
           opacity: 1,
           y: 0
