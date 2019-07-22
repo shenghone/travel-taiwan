@@ -30,17 +30,19 @@ const Picture = React.memo(({ lastOne, ...props }) => {
   };
 
   useEffect(() => {
-    if (Math.round(progress * 100) % 100 === 0) {
+    if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
       const animate = () => {
         const et = new TimelineMax();
-        et.set(pictureWrapperRef.current.children, {
+        et.set(imgRef.current, {
           opacity: 1
         });
         et.from(pictureWrapperRef.current, _.random(0.8, 1.2), {
           opacity: -2,
+          scale: 0.9,
           y: _.random(-140, -165)
         }).to(pictureWrapperRef.current, 0.6, {
           opacity: 1,
+          scale: 1,
           y: 0
         });
       };
@@ -81,6 +83,7 @@ const Picture = React.memo(({ lastOne, ...props }) => {
           imageLoaded(1 / lastOne);
         }}
         ref={imgRef}
+        style={{ opacity: 0 }}
         src={imageLink}
         alt="place"
       />
