@@ -168,6 +168,7 @@ const Carousel = props => {
     }
   }, [picture, progress]);
 
+  //loader animation, which only display when first loaded
   useEffect(() => {
     if (progress !== 0 && Math.round(progress * 100) / 100 === 1) {
       const et = new TimelineMax();

@@ -109,7 +109,7 @@ const About = React.memo(() => {
           >
             Unsplash
           </a>
-          . Thanks for all the unselfish photagraphers, I see you.
+          . Thanks for all the unselfish photographers, I see you.
         </p>
       );
     } else if (selectedTopic === "me") {
