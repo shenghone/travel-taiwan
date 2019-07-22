@@ -169,7 +169,7 @@ const Carousel = props => {
   }, [picture, progress]);
 
   useEffect(() => {
-    if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
+    if (progress !== 0 && Math.round(progress * 100) / 100 === 1) {
       const et = new TimelineMax();
       et.to(barRef.current, 0.6, {
         width: `${Math.round(progress * 100)}%`
