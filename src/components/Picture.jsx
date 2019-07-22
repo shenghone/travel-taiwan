@@ -38,15 +38,18 @@ const Picture = React.memo(({ lastOne, ...props }) => {
         });
         et.from(pictureWrapperRef.current, _.random(0.8, 1.2), {
           opacity: -2,
-          scale: 0.9,
           y: _.random(-140, -165)
         }).to(pictureWrapperRef.current, 0.6, {
           opacity: 1,
-          scale: 1,
           y: 0
         });
       };
       window.requestAnimationFrame(animate);
+    } else {
+      const et = new TimelineMax();
+      et.set(imgRef.current, {
+        opacity: 0
+      });
     }
   }, [progress]);
 

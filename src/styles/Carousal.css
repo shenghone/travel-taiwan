@@ -26,6 +26,20 @@
   cursor: grab;
 }
 
+.loader {
+  display: grid;
+  place-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 500px;
+}
+
+.bar {
+  position: absolute;
+  height: 15px;
+  background: #fff;
+}
+
 .dragger:active {
   cursor: grabbing;
 }

@@ -11,6 +11,7 @@ const PICTURES = require("../assets/resources.json");
 
 const Carousel = props => {
   const sectionRef = useRef(null);
+  const barRef = useRef(null);
   const windowRef = useRef(null);
   const instructionRef = useRef(null);
   const [draggerWidth, setDraggerWidth] = useState(0);
@@ -21,6 +22,10 @@ const Carousel = props => {
   //let redux handle the current offset value
   const dispatch = useDispatch();
   const offset = useSelector(state => state.offset);
+
+  //the progress of loading pictures
+  const progress = useSelector(state => state.percentage);
+
   const setOffsetValue = val => dispatch(setOffsetValueAction(val));
   //let redux handle the current selected picture
   const picture = useSelector(state => state.selectedPictures);
@@ -97,11 +102,13 @@ const Carousel = props => {
     window.requestAnimationFrame(animate);
   };
 
+  //load the images for the carousel
   useEffect(() => {
     const { images } = PICTURES;
     setPictures(images);
   }, []);
 
+  //set the draggable distance
   useEffect(() => {
     setDraggerWidth(windowRef.current.getBoundingClientRect().width * 4);
   }, [w]);
@@ -134,25 +141,38 @@ const Carousel = props => {
         }
       });
     } else {
-      TweenMax.to(windowRef.current.children, 1, {
-        delay: 0.4,
-        scale: 1,
-        opacity: 1
-      });
-      const et = new TimelineMax();
-      et.to(instructionRef.current, 2.8, {
-        css: {
-          opacity: 0.75,
-          zIndex: 25
-        }
-      }).to(instructionRef.current, 0.5, {
-        css: {
-          opacity: 0,
-          zIndex: 2
-        }
-      });
+      if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
+        const et = new TimelineMax();
+        et.to(instructionRef.current, 2.2, {
+          delay: 0.8,
+          css: {
+            opacity: 0.75,
+            zIndex: 25
+          }
+        }).to(instructionRef.current, 0.5, {
+          css: {
+            opacity: 0,
+            zIndex: 2
+          }
+        });
+      }
     }
-  }, [picture]);
+  }, [picture, progress]);
+
+  useEffect(() => {
+    if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
+      const et = new TimelineMax();
+      et.to(barRef.current, 0.6, {
+        width: `${Math.round(progress * 100)}%`
+      })
+        .to(barRef.current, 0.5, {
+          opacity: 0
+        })
+        .to(barRef.current, 0.2, {
+          display: "none"
+        });
+    }
+  }, [progress]);
 
   return (
     <section ref={sectionRef} className="carouselWrapper">
@@ -198,6 +218,9 @@ const Carousel = props => {
           {!picture && <p>Drag right/left to start the journey</p>}
           {picture && <p>{PICTURES.images[picture - 1].title}</p>}
         </div>
+      </section>
+      <section className="loader">
+        <section className="bar" ref={barRef} />
       </section>
     </section>
   );
