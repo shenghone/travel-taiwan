@@ -15,6 +15,8 @@
 }
 
 .des {
+  position: absolute;
+
   display: grid;
   height: 450px;
   justify-self: center;
@@ -62,10 +64,21 @@
 }
 
 .aboutInnerWrapper {
+  position: absolute;
   display: flex;
+  bottom: 5%;
   justify-content: center;
-  min-width: 400px;
+  min-width: 300px;
   overflow-y: scroll;
+  width: 100%;
+}
+
+.aboutInnerWrapper div {
+  height: 2rem;
+  margin: 0 0.5rem;
+  opacity: 0;
+
+  animation: tabAnimation 5s forwards;
 }
 
 .aboutInnerWrapper h1 {
@@ -98,14 +111,6 @@
   object-fit: cover;
   height: 100%;
   opacity: 0;
-}
-
-.aboutInnerWrapper > div {
-  bottom: 5%;
-  display: inline-block;
-  margin: 0 0.5rem;
-  opacity: 0;
-  animation: tabAnimation 5s forwards;
 }
 
 @keyframes tabAnimation {
@@ -144,5 +149,11 @@
 @media screen and (max-width: 480px) {
   .aboutOutterWrapper {
     grid-template-columns: 70vw 1fr;
+  }
+  .des {
+    top: 25%;
+  }
+  .aboutInnerWrapper {
+    top: 15%;
   }
 }

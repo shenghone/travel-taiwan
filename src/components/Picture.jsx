@@ -40,6 +40,7 @@ const Picture = React.memo(({ lastOne, ...props }) => {
           opacity: -2,
           y: _.random(-140, -165)
         }).to(pictureWrapperRef.current, 0.6, {
+          delay: 1,
           opacity: 1,
           y: 0
         });

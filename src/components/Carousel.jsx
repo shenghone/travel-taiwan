@@ -141,10 +141,19 @@ const Carousel = props => {
         }
       });
     } else {
+      TweenMax.set(windowRef.current.children, {
+        scale: 0.6
+      });
+      TweenMax.to(windowRef.current.children, 0.6, {
+        css: {
+          scale: 1,
+          zIndex: 25
+        }
+      });
       if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
         const et = new TimelineMax();
-        et.to(instructionRef.current, 2.2, {
-          delay: 0.8,
+        et.to(instructionRef.current, 1.6, {
+          delay: 0.35,
           css: {
             opacity: 0.75,
             zIndex: 25
@@ -160,7 +169,7 @@ const Carousel = props => {
   }, [picture, progress]);
 
   useEffect(() => {
-    if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
+    if (progress !== 0 && Math.round(progress * 100) === 0) {
       const et = new TimelineMax();
       et.to(barRef.current, 0.6, {
         width: `${Math.round(progress * 100)}%`
