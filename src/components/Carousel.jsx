@@ -14,6 +14,7 @@ const Carousel = props => {
   const barRef = useRef(null);
   const windowRef = useRef(null);
   const instructionRef = useRef(null);
+  const loadingRef = useRef(null);
   const [draggerWidth, setDraggerWidth] = useState(0);
   const [pictures, setPictures] = useState(null);
   const w = useWidth();
@@ -181,6 +182,19 @@ const Carousel = props => {
         .to(barRef.current, 0.2, {
           display: "none"
         });
+      TweenMax.to(loadingRef.current, 0.1, {
+        display: "none"
+      });
+    }
+    if (progress === null || progress === 0) {
+      const et = new TimelineMax();
+      et.to(loadingRef.current, 0.8, {
+        letterSpacing: "1rem",
+        opacity: 0
+      }).to(loadingRef.current, 0.8, {
+        letterSpacing: "0.5rem",
+        opacity: 0.9
+      });
     }
   }, [progress]);
 
@@ -230,6 +244,7 @@ const Carousel = props => {
         </div>
       </section>
       <section className="loader">
+        <h4 ref={loadingRef}>LOADING</h4>
         <section className="bar" ref={barRef} />
       </section>
     </section>
