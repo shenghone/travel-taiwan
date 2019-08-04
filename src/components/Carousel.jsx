@@ -184,10 +184,14 @@ const Carousel = props => {
       const et = new TimelineMax();
       et.to(barRef.current, 0.4, {
         opacity: 0
-      }).to(barRef.current, 0.4, {
-        display: "none",
-        zIndex: -1
-      });
+      })
+        .to(barRef.current, 0.4, {
+          display: "none"
+        })
+        .set(loaderRef.current, {
+          display: "none",
+          zIndex: -1
+        });
     }
   }, [progress]);
 
