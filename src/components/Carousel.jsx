@@ -15,6 +15,7 @@ const Carousel = props => {
   const windowRef = useRef(null);
   const instructionRef = useRef(null);
   const loadingRef = useRef(null);
+  const loaderRef = useRef(null);
   const [draggerWidth, setDraggerWidth] = useState(0);
   const [pictures, setPictures] = useState(null);
   const w = useWidth();
@@ -181,6 +182,9 @@ const Carousel = props => {
         })
         .to(barRef.current, 0.2, {
           display: "none"
+        })
+        .to(loaderRef.current, 0.1, {
+          zIndex: -1
         });
       TweenMax.to(loadingRef.current, 0.1, {
         display: "none"
@@ -233,7 +237,7 @@ const Carousel = props => {
           {picture && <p>{PICTURES.images[picture - 1].title}</p>}
         </div>
       </section>
-      <section className="loader">
+      <section className="loader" ref={loaderRef}>
         <h4 ref={loadingRef}>LOADING</h4>
         <section className="bar" ref={barRef} />
       </section>
