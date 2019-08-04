@@ -185,6 +185,9 @@ const Carousel = props => {
         })
         .to(loaderRef.current, 0.1, {
           zIndex: -1
+        })
+        .set(loadingRef.current, {
+          display: "none"
         });
       TweenMax.to(loadingRef.current, 0.1, {
         display: "none"
