@@ -183,7 +183,10 @@ const Carousel = props => {
     if (progress !== 0 && Math.round(progress * 100) / 100 === 1) {
       const et = new TimelineMax();
       et.to(barRef.current, 0.4, {
-        display: "none"
+        opacity: 0
+      }).to(barRef.current, 0.4, {
+        display: "none",
+        zIndex: -1
       });
     }
   }, [progress]);
