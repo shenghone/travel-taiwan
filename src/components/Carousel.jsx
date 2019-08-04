@@ -186,7 +186,8 @@ const Carousel = props => {
         opacity: 0
       })
         .to(barRef.current, 0.4, {
-          display: "none"
+          display: "none",
+          zIndex: -1
         })
         .set(loaderRef.current, {
           display: "none",
