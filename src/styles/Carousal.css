@@ -58,6 +58,7 @@
   position: absolute;
   height: 15px;
   background: #fff;
+  transition: 0.3s all;
 }
 
 .dragger:active {
