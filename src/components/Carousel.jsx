@@ -186,16 +186,6 @@ const Carousel = props => {
         display: "none"
       });
     }
-    if (progress === null || progress === 0) {
-      const et = new TimelineMax();
-      et.to(loadingRef.current, 0.8, {
-        letterSpacing: "1rem",
-        opacity: 0
-      }).to(loadingRef.current, 0.8, {
-        letterSpacing: "0.5rem",
-        opacity: 0.9
-      });
-    }
   }, [progress]);
 
   return (

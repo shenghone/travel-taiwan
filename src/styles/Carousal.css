@@ -39,6 +39,17 @@
   z-index: 99;
   letter-spacing: 0.5rem;
   color: #fff;
+  animation: loaderAnim 3s infinite;
+}
+
+@keyframes loaderAnim {
+  0% {
+    letter-spacing: 1rem;
+  }
+  100% {
+    letter-spacing: 0.5rem;
+    opacity: 0;
+  }
 }
 
 .bar {
