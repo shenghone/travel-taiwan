@@ -14,7 +14,6 @@ const Carousel = props => {
   const barRef = useRef(null);
   const windowRef = useRef(null);
   const instructionRef = useRef(null);
-  const loadingRef = useRef(null);
   const loaderRef = useRef(null);
   const [draggerWidth, setDraggerWidth] = useState(0);
   const [pictures, setPictures] = useState(null);
@@ -172,24 +171,18 @@ const Carousel = props => {
 
   //loader animation, which only display when first loaded
   useEffect(() => {
+    if (
+      progress !== null &&
+      progress !== 0 &&
+      Math.round((progress * 100) / 100 <= 1)
+    ) {
+      TweenMax.set(barRef.current, {
+        width: `${Math.round(progress * 100)}%`
+      });
+    }
     if (progress !== 0 && Math.round(progress * 100) / 100 === 1) {
       const et = new TimelineMax();
-      et.to(barRef.current, 0.6, {
-        width: `${Math.round(progress * 100)}%`
-      })
-        .to(barRef.current, 0.5, {
-          opacity: 0
-        })
-        .to(barRef.current, 0.2, {
-          display: "none"
-        })
-        .to(loaderRef.current, 0.1, {
-          zIndex: -1
-        })
-        .set(loadingRef.current, {
-          display: "none"
-        });
-      TweenMax.to(loadingRef.current, 0.1, {
+      et.to(barRef.current, 0.4, {
         display: "none"
       });
     }
@@ -241,7 +234,6 @@ const Carousel = props => {
         </div>
       </section>
       <section className="loader" ref={loaderRef}>
-        <h4 ref={loadingRef}>LOADING</h4>
         <section className="bar" ref={barRef} />
       </section>
     </section>
