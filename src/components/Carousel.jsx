@@ -180,7 +180,7 @@ const Carousel = props => {
         width: `${Math.round(progress * 100)}%`
       });
     }
-    if (progress !== 0 && Math.round(progress * 100) / 100 === 1) {
+    if (progress !== 0 && Math.round(progress * 100) % 100 === 0) {
       const et = new TimelineMax();
       et.to(barRef.current, 0.4, {
         opacity: 0
