@@ -145,8 +145,9 @@ const Carousel = props => {
       TweenMax.set(windowRef.current.children, {
         scale: 0.6
       });
-      TweenMax.to(windowRef.current.children, 0.6, {
+      TweenMax.to(windowRef.current.children, 1.2, {
         css: {
+          delay: 2.2,
           scale: 1,
           zIndex: 25
         }
